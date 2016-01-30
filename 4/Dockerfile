@@ -16,7 +16,7 @@ RUN chown -R node /home/node
 USER node
 
 # Install dependencies.
-ONBUILD COPY package.json .
+ONBUILD COPY *.json .
 ONBUILD RUN npm install --ignore-scripts
 
 # Setup node entrypoint.
