@@ -1,0 +1,19 @@
+after_script:
+  - docker images
+
+before_script:
+  - env | sort
+  - cd "$VERSION"
+  - image="node:$VERSION"
+
+env:
+  - VERSION=5
+  - VERSION=4
+
+language: bash
+
+script:
+  - docker build -t "$image" .
+  - docker run "$image" --version | egrep v${VERSION}\.\[0-9]\.\[0-9]
+
+services: docker
