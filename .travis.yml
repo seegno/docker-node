@@ -2,18 +2,19 @@ after_script:
   - docker images
 
 before_script:
-  - env | sort
   - cd "$VERSION"
-  - image="node:$VERSION"
+  - IMAGE="node:$VERSION"
 
 env:
-  - VERSION=5
-  - VERSION=4
+  - VERSION=5/onbuild
+  - VERSION=5/slim
+  - VERSION=4/onbuild
+  - VERSION=4/slim
 
 language: bash
 
 script:
-  - docker build -t "$image" .
-  - docker run "$image" --version | egrep v${VERSION}\.\[0-9]\.\[0-9]
+  - docker build -t "$IMAGE" .
+  - docker run "$IMAGE" --version | egrep v$(echo $VERSION | sed -e 's/\/onbuild//' -e 's/\/slim//')\.\[0-9]\.\[0-9]
 
 services: docker
