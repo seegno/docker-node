@@ -1,7 +1,7 @@
-FROM mhart/alpine-node:5
+FROM mhart/alpine-node:4
 
 # Add gcc and git support for native dependencies.
-RUN apk add --update g++ gcc git make python && rm -rf /var/cache/apk/*
+RUN apk --no-cache --virtual buildDependencies add g++ gcc git make python
 
 # Add a user to avoid running node as `root`.
 RUN adduser -S node
@@ -18,6 +18,9 @@ USER node
 # Install dependencies.
 ONBUILD COPY *.json ./
 ONBUILD RUN npm install --ignore-scripts
+
+# Copy project directory.
+ONBUILD COPY . ./
 
 # Setup node entrypoint.
 ENTRYPOINT ["node"]
