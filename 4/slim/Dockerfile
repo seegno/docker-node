@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:4
 
 # Add gcc and git support for native dependencies.
-RUN apk --no-cache --virtual buildDependencies add g++ gcc git make python
+RUN apk --no-cache --virtual build-dependencies add g++ gcc git make python
 
 # Add a user to avoid running node as `root`.
 RUN adduser -S node
