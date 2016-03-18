@@ -15,9 +15,8 @@ RUN chown -R node /home/node
 # Change the user to avoid running as `root`.
 USER node
 
-# Install dependencies.
+# Copy package.json and npm-shrinkwrap.json if they exist.
 ONBUILD COPY *.json ./
-ONBUILD RUN npm install --ignore-scripts
 
 # Setup node entrypoint.
 ENTRYPOINT ["node"]
