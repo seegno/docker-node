@@ -6,10 +6,10 @@ before_script:
   - IMAGE="node:$VERSION"
 
 env:
-  - VERSION=5/onbuild
-  - VERSION=5/slim
   - VERSION=4/onbuild
   - VERSION=4/slim
+  - VERSION=5/onbuild
+  - VERSION=5/slim
 
 language: bash
 
