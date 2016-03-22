@@ -2,7 +2,6 @@ after_script:
   - docker images
 
 before_script:
-  - cd "$VERSION"
   - IMAGE="node:$VERSION"
 
 env:
@@ -14,7 +13,7 @@ env:
 language: bash
 
 script:
-  - docker build -t "$IMAGE" .
-  - docker run "$IMAGE" --version | egrep v$(echo $VERSION | sed -e 's/\/onbuild//' -e 's/\/slim//')\.\[0-9]\.\[0-9]
+  - docker build -t "$IMAGE" "$VERSION"
+  - docker build "test/$VERSION"
 
 services: docker
