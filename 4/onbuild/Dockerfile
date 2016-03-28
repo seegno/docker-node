@@ -26,7 +26,7 @@ ONBUILD COPY . ./
 ONBUILD USER root
 
 # Remove build dependencies.
-ONBUILD RUN apk del build-dependencies
+ONBUILD RUN apk --no-cache del build-dependencies
 
 # Change the user to `node` to run the application.
 ONBUILD USER node
