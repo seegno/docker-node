@@ -7,13 +7,15 @@ before_script:
 env:
   - VERSION=4/onbuild
   - VERSION=4/slim
+  - VERSION=4/test
   - VERSION=5/onbuild
   - VERSION=5/slim
+  - VERSION=5/test
 
 language: bash
 
 script:
   - docker build -t "$IMAGE" "$VERSION"
-  - docker build "test/$VERSION"
+  - "[[ -f test/$VERSION/Dockerfile ]] && docker build test/$VERSION || true"
 
 services: docker
