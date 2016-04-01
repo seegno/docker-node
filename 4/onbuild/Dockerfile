@@ -22,12 +22,6 @@ ONBUILD RUN npm install --ignore-scripts
 # Copy project directory.
 ONBUILD COPY . ./
 
-# Change the user to `root` to remove build dependencies.
-ONBUILD USER root
-
-# Remove build dependencies.
-ONBUILD RUN apk --no-cache del build-dependencies
-
 # Change the user to `node` to run the application.
 ONBUILD USER node
 
