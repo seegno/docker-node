@@ -22,6 +22,12 @@ ONBUILD RUN npm install --ignore-scripts
 # Copy project directory.
 ONBUILD COPY . ./
 
+# Change to `root` so we can change the ownership of the copied files.
+ONBUILD USER root
+
+# Change ownership to user `node`.
+ONBUILD RUN chown -R node .
+
 # Change the user to `node` to run the application.
 ONBUILD USER node
 
