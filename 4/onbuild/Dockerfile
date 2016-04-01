@@ -31,5 +31,8 @@ ONBUILD RUN apk --no-cache del build-dependencies
 # Change the user to `node` to run the application.
 ONBUILD USER node
 
+# Rebuild packages.
+ONBUILD RUN npm rebuild
+
 # Setup node entrypoint.
 ENTRYPOINT ["node"]
