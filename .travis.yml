@@ -14,6 +14,9 @@ env:
   - VERSION=6/onbuild
   - VERSION=6/slim
   - VERSION=6/test
+  - VERSION=7/onbuild
+  - VERSION=7/slim
+  - VERSION=7/test
 
 language: bash
 
