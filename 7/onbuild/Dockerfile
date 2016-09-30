@@ -49,6 +49,9 @@ RUN chown -R node /home/node
 # Change the user to avoid running as `root`.
 USER node
 
+# Allow building binary dependencies from node's source.
+RUN npm config set nodedir /node-${VERSION}
+
 # Install dependencies.
 ONBUILD COPY *.json ./
 ONBUILD RUN npm install --ignore-scripts
