@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-ENV VERSION=v7.0.0-nightly201609276b443d1731 NPM_VERSION=3
+ENV VERSION=v7.0.0-nightly20161006bd0bedb86a NPM_VERSION=3
 
 RUN apk add --no-cache curl make gcc g++ python linux-headers paxctl libgcc libstdc++ gnupg && \
   gpg --keyserver ha.pool.sks-keyservers.net --recv-keys \
