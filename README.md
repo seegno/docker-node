@@ -4,8 +4,6 @@ A node docker image.
 
 [![seegno/node][docker-pulls-image]][docker-hub-url]
 [![seegno/node][docker-stars-image]][docker-hub-url]
-[![seegno/node][docker-size-image]][docker-hub-url]
-[![seegno/node][docker-layers-image]][docker-hub-url]
 
 ## Usage
 
@@ -14,7 +12,7 @@ A node docker image.
 Create a `Dockerfile` in the root of application directory:
 
 ```Dockerfile
-FROM seegno/node:<version>
+FROM seegno/node:<tag>
 ```
 
 Then simply run:
@@ -26,26 +24,53 @@ $ docker run --rm -it node
 
 ## Image Variants
 
-The `seegno/node` image comes in a single flavor:
+All of the images are based on [alpine-node](https://github.com/mhart/alpine-node).
+
+The `seegno/node` image comes in multiple flavors. Only the major version is tracked as there is a linked dependency to [alpine-node](https://github.com/mhart/alpine-node) on Docker Hub.
+
+All images come with a `yarn` variant (e.g. `seegno/node:<version>-yarn`, `seegno/node:<version>-onbuild`).
 
 ### `seegno/node:latest`
 
-Tag that points to the latest node release available.
+Tag that points to the latest node version available as part of `seegno/node:<version>-onbuild`.
 
 ### `seegno/node:<version>`
 
-Based on a [alpine-node](https://github.com/mhart/alpine-node) image, it targets a specific version branch of node (e.g. 5.5.0).
+Targets a specific version branch of node (e.g. `7`) and is an alias for the `onbuild` variant.
 
-## Supported docker versions
+### `seegno/node:<version>-slim`
 
-This image is officially supported on docker version 1.9.1, with support for older versions provided on a best-effort basis.
+Targets a specific version branch of node (e.g. `7`) using a `slim` profile:
+
+- Installs build dependencies for native modules;
+- Creates and assigns the working directory `/home/node` to the `node` user;
+- Copies `package.json` and `npm-shrinkwrap.json` to the working directory if they exist.
+
+### `seegno/node:<version>-onbuild`
+
+Targets a specific version branch of node (e.g. `7`) using an `onbuild` profile:
+
+- Installs build dependencies for native modules;
+- Creates and assigns the working directory `/home/node` to the `node` user;
+- Copies `package.json` and `npm-shrinkwrap.json` to the working directory if they exist;
+- Installs packages.
+
+### `seegno/node:<version>-test`
+
+Targets a specific version branch of node (e.g. `7`) using a `test` profile:
+
+- Installs build dependencies for native modules;
+- Installs packages;
+- Runs `npm test`.
+
+## Supported Docker versions
+
+This image is officially supported on Docker `v1.12.1`, with support for older versions provided on a best-effort basis.
 
 ## License
 
 [License information](https://github.com/seegno/docker-node/blob/master/LICENSE) for the `seegno/node` docker project.
 
 [docker-hub-url]: https://hub.docker.com/r/seegno/node
-[docker-layers-image]: https://img.shields.io/imagelayers/layers/seegno/node/latest.svg
-[docker-pulls-image]: https://img.shields.io/docker/pulls/seegno/node.svg
-[docker-size-image]: https://img.shields.io/imagelayers/image-size/seegno/node/latest.svg
-[docker-stars-image]: https://img.shields.io/docker/stars/seegno/node.svg
+[docker-pulls-image]: https://img.shields.io/docker/pulls/seegno/node.svg?style=flat-square
+[docker-stars-image]: https://img.shields.io/docker/stars/seegno/node.svg?style=flat-square
