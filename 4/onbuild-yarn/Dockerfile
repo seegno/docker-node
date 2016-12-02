@@ -20,7 +20,7 @@ USER node
 
 # Install dependencies.
 ONBUILD COPY *package.json *yarn.lock ./
-ONBUILD RUN yarn
+ONBUILD RUN yarn --ignore-scripts
 
 # Copy project directory.
 ONBUILD COPY . ./
