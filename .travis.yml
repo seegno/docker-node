@@ -6,17 +6,29 @@ before_script:
 
 env:
   - VERSION=4/onbuild
+  - VERSION=4/onbuild-yarn
   - VERSION=4/slim
+  - VERSION=4/slim-yarn
   - VERSION=4/test
+  - VERSION=4/test-yarn
   - VERSION=5/onbuild
+  - VERSION=5/onbuild-yarn
   - VERSION=5/slim
+  - VERSION=5/slim-yarn
   - VERSION=5/test
+  - VERSION=5/test-yarn
   - VERSION=6/onbuild
+  - VERSION=6/onbuild-yarn
   - VERSION=6/slim
+  - VERSION=6/slim-yarn
   - VERSION=6/test
+  - VERSION=6/test-yarn
   - VERSION=7/onbuild
+  - VERSION=7/onbuild-yarn
   - VERSION=7/slim
+  - VERSION=7/slim-yarn
   - VERSION=7/test
+  - VERSION=7/test-yarn
 
 language: bash
 
