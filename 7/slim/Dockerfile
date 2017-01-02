@@ -1,10 +1,7 @@
-FROM mhart/alpine-node:7
+FROM node:7-alpine
 
 # Add gcc and git support for native dependencies.
 RUN apk --no-cache --virtual build-dependencies add g++ gcc git make python
-
-# Add a user to avoid running node as `root`.
-RUN adduser -S node
 
 # Change the working directory.
 WORKDIR /home/node/app

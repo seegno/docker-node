@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:7
+FROM node:7-alpine
 
 # Add gcc and git support for native dependencies.
 RUN apk --no-cache --virtual build-dependencies add g++ gcc git make python

@@ -24,9 +24,9 @@ $ docker run --rm -it node
 
 ## Image Variants
 
-All of the images are based on [alpine-node](https://github.com/mhart/alpine-node).
+All of the images are based on [node:alpine](https://hub.docker.com/r/library/node).
 
-The `seegno/node` image comes in multiple flavors. Only the major version is tracked as there is a linked dependency to [alpine-node](https://github.com/mhart/alpine-node) on Docker Hub.
+The `seegno/node` image comes in multiple flavors. Only the major version is tracked as there is a linked dependency to [node:alpine](https://hub.docker.com/r/library/node/) on Docker Hub.
 
 All images come with a `yarn` variant (e.g. `seegno/node:<version>-yarn`, `seegno/node:<version>-onbuild`).
 
