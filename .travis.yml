@@ -23,6 +23,12 @@ env:
   - VERSION=7/slim-yarn
   - VERSION=7/test
   - VERSION=7/test-yarn
+  - VERSION=8/onbuild
+  - VERSION=8/onbuild-yarn
+  - VERSION=8/slim
+  - VERSION=8/slim-yarn
+  - VERSION=8/test
+  - VERSION=8/test-yarn
 
 language: bash
 
