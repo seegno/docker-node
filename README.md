@@ -36,11 +36,11 @@ Tag that points to the latest node version available as part of `seegno/node:<ve
 
 ### `seegno/node:<version>`
 
-Targets a specific version branch of node (e.g. `7`) and is an alias for the `onbuild` variant.
+Targets a specific version branch of node (e.g. `8`) and is an alias for the `onbuild` variant.
 
 ### `seegno/node:<version>-slim`
 
-Targets a specific version branch of node (e.g. `7`) using a `slim` profile:
+Targets a specific version branch of node (e.g. `8`) using a `slim` profile:
 
 - Installs build dependencies for native modules;
 - Creates and assigns the working directory `/home/node` to the `node` user;
@@ -48,7 +48,7 @@ Targets a specific version branch of node (e.g. `7`) using a `slim` profile:
 
 ### `seegno/node:<version>-onbuild`
 
-Targets a specific version branch of node (e.g. `7`) using an `onbuild` profile:
+Targets a specific version branch of node (e.g. `8`) using an `onbuild` profile:
 
 - Installs build dependencies for native modules;
 - Creates and assigns the working directory `/home/node` to the `node` user;
@@ -57,7 +57,7 @@ Targets a specific version branch of node (e.g. `7`) using an `onbuild` profile:
 
 ### `seegno/node:<version>-test`
 
-Targets a specific version branch of node (e.g. `7`) using a `test` profile:
+Targets a specific version branch of node (e.g. `8`) using a `test` profile:
 
 - Installs build dependencies for native modules;
 - Installs packages;
